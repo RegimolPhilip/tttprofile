@@ -1,70 +1,108 @@
-# Getting Started with Create React App
+Netlify link: https://terriblytinytalesregi.netlify.app/
+React Components README
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repository contains several React components designed for various functionalities. Each component serves a specific purpose, and this README provides an overview of each one.
 
-## Available Scripts
+COMPONENTS
 
-In the project directory, you can run:
+Follow Component The Follow component displays follower and following counts in two boxes. It has a simple and clean design.
 
-### `npm start`
+Follower Component The Follower component is similar to the Follow component but uses different styling and class names.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+PersonInfo Component The PersonInfo component displays a person's name along with two logos (images) side by side. It uses the Logo1 and Logo2 images and renders them in a flex container.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Insta Component The Insta component provides a link to the Instagram profile. It uses the URL 'https://www.instagram.com' and opens the link in a new tab.
 
-### `npm test`
+LeftBox Component The LeftBox component is a simple box with text inside, displaying "138 Posts." It has a straightforward design.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Logo Component The Logo component displays a single logo image using the logoImage imported from '../images/d.png'.
 
-### `npm run build`
+Logos Component The Logos component displays multiple logos (images) along with corresponding text. It includes images for a star, like, views, and hearts.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Tweet Component The Tweet component represents a tweet-like box with a heading, content, like button, type information, timestamp, and view count.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+FILE STRUCTURE
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+follow.css: Styles for the Follow component.
+follower.css: Styles for the Follower component.
+info.css: Styles for the PersonInfo component.
+leftbox.css: Styles for the LeftBox component.
+logos.css: Styles for the Logos component.
+tweet.css: Styles for the Tweet component.
+USAGE
 
-### `npm run eject`
+Feel free to use and customize these components in your React application. Import the components into your desired files and adjust the styling or functionality based on your requirements.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Example:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+import React from 'react';
+import Follow from './components/Follow';
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+const App = () => {
+  return (
+    <div>
+      <Follow followers={100} following={50} />
+      {/* Add other components or content as needed */}
+    </div>
+  );
+};
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+export default App;
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+To fetch data in json format
 
-### Code Splitting
+In App.js
+import React, { useState, useEffect } from 'react';
+import DataComponent from './DataComponent';
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+const App = () => {
+  const [fetchedData, setFetchedData] = useState(null);
 
-### Analyzing the Bundle Size
+  useEffect(() => {
+    // Simulate data fetching (replace with your actual data fetching logic)
+    const fetchData = async () => {
+      try {
+        const response = await fetch('https://api.example.com/data'); // respectiveAPI endpoint
+        const jsonData = await response.json();
+        setFetchedData(jsonData);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+    fetchData();
+  }, []); // Empty dependency array ,effect will run once when the component mounts
 
-### Making a Progressive Web App
+  return (
+    <div>
+      <h1>My React App</h1>
+      {fetchedData && <DataComponent data={fetchedData} />}
+    </div>
+  );
+};
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+export default App;
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+In parent component App and child component DataComponent
+import React from 'react';
 
-### Deployment
+const DataComponent = ({ data }) => {
+  return (
+    <div>
+      <h2>Data from Parent Component:</h2>
+      <pre>{JSON.stringify(data, null, 2)}</pre>
+    </div>
+  );
+};
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+export default DataComponent;
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+In App component use the useState and useEffect hooks to fetch data when the component mounts.
+The fetched data is stored in the fetchedData state variable.
+The DataComponent is conditionally rendered only if fetchedData is available. It receives the data as a prop.
+Replace the placeholder API endpoint in the fetch function with the actual URL from which you want to fetch JSON data.
+Replace the placeholder API endpoint in the fetch function with the actual URL from which you want to fetch JSON data
