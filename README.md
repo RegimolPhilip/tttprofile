@@ -1,4 +1,7 @@
 Netlify link: https://terriblytinytalesregi.netlify.app/
+
+
+
 React Components README
 
 This repository contains several React components designed for various functionalities. Each component serves a specific purpose, and this README provides an overview of each one.
