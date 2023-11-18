@@ -1,0 +1,16 @@
+.left-box {
+    background-color: white;
+    border: 2px solid rgb(182, 175, 175);
+    padding: 10px;
+    margin-right: 10px;
+    width: 100px;
+    height: 20px;
+    border-bottom: white;
+  
+}
+
+.left-box p {
+    margin: 0;
+    font-size: 20px;
+    color: rgb(58, 86, 212);
+}

@@ -1,0 +1,26 @@
+.follower-following-container {
+    display: flex;
+}
+
+.followerbox,
+.followingbox {
+    flex: 1;
+    margin-right: 10px;
+    margin-left: 5px;
+    border: 0px solid #ccc;
+}
+
+.box-content {
+    text-align: center;
+}
+
+.box-text {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.box-label {
+    margin: 0;
+    text-align: center;
+   
+}

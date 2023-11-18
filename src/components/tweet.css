@@ -1,0 +1,54 @@
+
+.tweet-box {
+   background-color: white;
+    padding: 10px;
+    margin: 10px;
+    border-top: 2px solid rgb(182, 175, 175);
+    border-top: 2px solid rgb(182, 175, 175);
+}
+
+.tweet-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.topic-box {
+    font-weight: bold;
+}
+
+.like-button {
+    color: white;
+    border: none;
+    padding: 0px 0px;
+    cursor: pointer;
+    
+}
+
+.likeimg{
+    height:30px;
+    width: 30px;
+}
+
+.tweet-content {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.tweet-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 0.8em;
+    color: #888;
+}
+
+.type-info {
+    flex-grow: 1;
+}
+
+.timestamp,
+.views {
+    margin-left: 10px;
+}
